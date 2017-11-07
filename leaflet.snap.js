@@ -158,8 +158,8 @@ L.Snap.findClosestLayerSnap = function (map, layers, latlng, tolerance, withVert
 // between 0.7.x and 1.0+
 // pulled from code from L.Edit.Poly in Leaflet.Draw
 L.Snap.defaultShape = function (latlngs) {
-    if (!L.Polyline._flat) { return latlngs; }
-    return L.Polyline._flat(latlngs) ? latlngs : latlngs[0];
+    if (!L.LineUtil.isFlat) { return latlngs; }
+    return L.LineUtil.isFlat(latlngs) ? latlngs : latlngs[0];
 };
 
 // try to prefer the corner of guidelines, or the the intersection of gridlines, if we're within the tolerance of two
