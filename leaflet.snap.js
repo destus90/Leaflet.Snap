@@ -1,5 +1,7 @@
 /* globals L:true */
 
+var L = require('leaflet');
+
 L.Snap = {};
 
 L.Snap.isDifferentLayer = function (marker, layer) {
