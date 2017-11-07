@@ -1,6 +1,7 @@
-/* globals L:true */
-
 var L = require('leaflet');
+require('leaflet-geometryutil');
+require('leaflet-draw');
+
 
 L.Snap = {};
 
