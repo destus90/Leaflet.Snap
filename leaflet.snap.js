@@ -376,8 +376,13 @@ L.Edit.PolyVerticesEditSnap = L.Edit.PolyVerticesEdit.extend({
 
 L.Handler.RectangleSnap = L.Edit.Rectangle.extend({
     initialize: function (map, shape, options) {
+		var that = this;
         L.Edit.Rectangle.prototype.initialize.call(this, shape, options);
         this._snapper = new L.Handler.MarkerSnap(map, options);
+		
+		shape.on('remove', function() {
+			that.disable();
+		});
     },
     
     _createMarker: function (latlng, icon) {
@@ -393,8 +398,12 @@ L.Handler.RectangleSnap = L.Edit.Rectangle.extend({
 
 L.Handler.CircleSnap = L.Edit.Circle.extend({
     initialize: function (map, shape, options) {
+		var that = this;
         L.Edit.Circle.prototype.initialize.call(this, shape, options);
         this._snapper = new L.Handler.MarkerSnap(map, options);
+		shape.on('remove', function() {
+			that.disable();
+		});
     },
     
     _createMarker: function (latlng, icon) {
