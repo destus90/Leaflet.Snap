@@ -350,7 +350,14 @@ L.Handler.PolylineSnap = L.Edit.Poly.extend({
     _initHandlers: function () {
         this._verticesHandlers = [];
         for (var i = 0; i < this.latlngs.length; i++) {
-            this._verticesHandlers.push(new L.Edit.PolyVerticesEditSnap(this._poly, this.latlngs[i], this.options));
+			if (!L.LineUtil.isFlat(this.latlngs[i])) {
+				// multipolygon
+				for (var j = 0; j < this.latlngs[i].length; j++) {
+				  this._verticesHandlers.push(new L.Edit.PolyVerticesEditSnap(this._poly, this.latlngs[i][j], this.options));
+				}
+            } else {
+                this._verticesHandlers.push(new L.Edit.PolyVerticesEditSnap(this._poly, this.latlngs[i], this.options));
+            }
         }
     }
 });
