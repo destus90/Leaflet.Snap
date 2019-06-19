@@ -319,9 +319,11 @@ L.Handler.MarkerSnap = L.Handler.extend({
 
         if (e.originalEvent && e.originalEvent.clientX && closest && closest.layer && closest.latlng) {
             var snapTouchPoint = this._map.project(closest.latlng, this._map.getZoom());
-            e.originalEvent.clientX = snapTouchPoint.x;
+			e.originalEvent = L.extend({}, e.originalEvent, {clientX: snapTouchPoint.x, clientY: snapTouchPoint.y, snapped: true})
+            // doesn't work with 'use strict' as both clientX and clientY are readonly properties
+			/*e.originalEvent.clientX = snapTouchPoint.x;
             e.originalEvent.clientY = snapTouchPoint.y;
-            e.originalEvent.snapped = true;
+            e.originalEvent.snapped = true;*/
         }
     }
 });
