@@ -1,6 +1,6 @@
 {
     "name": "@technocom/leaflet-snap",
-    "version": "0.0.4",
+    "version": "0.0.5",
     "description": "Enable snapping between layers",
     "keywords": [
         "Leaflet",
@@ -22,12 +22,15 @@
         "url": "https://gogs.technocom.tech/AppliedSoftware/Leaflet.Snap"
     },
     "license": "MIT",
+    "peerDependencies": {
+        "leaflet-draw": "@technocom/leaflet-draw@0.4.10"
+    },
     "devDependencies": {
         "chai": "^3.5.0",
         "del-cli": "^3.0.1",
         "happen": "^0.3.1",
         "leaflet": "^0.7.7",
-        "leaflet-draw": "^0.3.2",
+        "leaflet-draw": "@technocom/leaflet-draw@0.4.10",
         "leaflet-geometryutil": "*",
         "mocha": "^3.0.2",
         "mocha-phantomjs": "^4.1.0",

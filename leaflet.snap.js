@@ -1,6 +1,6 @@
 var L = require('leaflet');
 require('leaflet-geometryutil');
-require('leaflet-draw');
+require('@technocom/leaflet-draw');
 
 
 L.Snap = {};
