@@ -1,5 +1,5 @@
 {
-    "name": "leaflet-snap",
+    "name": "@technocom/leaflet-snap",
     "version": "0.0.4",
     "description": "Enable snapping between layers",
     "keywords": [
@@ -8,23 +8,28 @@
     ],
     "main": "leaflet.snap.js",
     "bugs": {
-        "url": "https://github.com/makinacorpus/Leaflet.Snap/issues"
+        "url": "https://gogs.technocom.tech/AppliedSoftware/Leaflet.Snap/issues"
     },
     "scripts": {
-      "test": "mocha-phantomjs ./test/index.html --reporter list || true"
+        "test": "mocha-phantomjs ./test/index.html --reporter list || true",
+        "release": "npm pack && npm publish && del *.tgz"
+    },
+    "publishConfig": {
+        "registry": "http://tkrepo.technocom.tech/repository/tk-npm/"
     },
     "repository": {
         "type": "git",
-        "url": "git://github.com/makinacorpus/Leaflet.Snap.git"
+        "url": "https://gogs.technocom.tech/AppliedSoftware/Leaflet.Snap"
     },
     "license": "MIT",
     "devDependencies": {
-	    "leaflet": "^0.7.7",
-        "leaflet-geometryutil": "*",
-		"leaflet-draw": "^0.3.2",
         "chai": "^3.5.0",
-        "mocha": "^3.0.2",
+        "del-cli": "^3.0.1",
         "happen": "^0.3.1",
+        "leaflet": "^0.7.7",
+        "leaflet-draw": "^0.3.2",
+        "leaflet-geometryutil": "*",
+        "mocha": "^3.0.2",
         "mocha-phantomjs": "^4.1.0",
         "sinon": "^1.17.5"
     }
